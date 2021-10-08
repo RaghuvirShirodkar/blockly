@@ -296,6 +296,7 @@ confBlocks.ultrasonic.raspberrypi = {
         ['VCC', '5V']
     ]
 };
+confBlocks.ultrasonic.mbot2 = confBlocks.ultrasonic.calliope;
 
 confBlocks.light = {};
 confBlocks.light.arduino = {
@@ -321,6 +322,7 @@ confBlocks.light.calliope = {
     inbuilt: true
 };
 confBlocks.light.microbit = confBlocks.light.calliope;
+confBlocks.light.mbot2 = confBlocks.light.calliope;
 confBlocks.light.sensebox = {
     title: 'LIGHT',
     ports: [
@@ -373,6 +375,7 @@ confBlocks.accelerometer.calliope = {
     inbuilt: true
 };
 confBlocks.accelerometer.microbit = confBlocks.accelerometer.calliope;
+confBlocks.accelerometer.mbot2 = confBlocks.accelerometer.calliope;
 confBlocks.accelerometer.sensebox = {
     title: 'ACCELEROMETER',
     sensor: true
@@ -500,7 +503,19 @@ confBlocks.infrared.arduino = {
         ['VCC', '5V']
     ]
 };
-
+confBlocks.quadrgb = {};
+confBlocks.quadrgb.mbot2 = {
+    title: 'QUADRGB',
+    ports: [
+        ['pin', 'PIN1']
+    ],
+    pins: function (a) {
+        return [
+            ['A1', '1']
+        ];
+    },
+    sensor: true
+};
 confBlocks.temperature = {};
 confBlocks.temperature.arduino = {
     title: 'TEMPERATURE',
@@ -610,6 +625,11 @@ confBlocks.motion.raspberrypi = {
     ]
 };
 
+confBlocks.joystick = {};
+confBlocks.joystick.mbot2 = {
+    title: 'JOYSTICK',
+    sensor: true,
+}
 
 confBlocks.key = {};
 confBlocks.key.arduino = {
@@ -659,6 +679,10 @@ confBlocks.key.raspberrypi = {
         ['GND', 'GND']
     ]
 };
+confBlocks.key.mbot2 = {
+    title: 'KEY',
+    sensor: true
+}
 
 confBlocks.drop = {};
 confBlocks.drop.arduino = {
@@ -937,6 +961,7 @@ confBlocks.sound.calliope = {
     sensor: true,
     inbuilt: true
 };
+confBlocks.sound.mbot2 = confBlocks.sound.calliope;
 confBlocks.sound.sensebox = {
     title: 'SOUND',
     ports: [
@@ -1141,6 +1166,7 @@ confBlocks.gyro.sensebox = {
     title: 'GYRO',
     sensor: true
 };
+confBlocks.gyro.mbot2 = confBlocks.gyro.calliope;
 
 confBlocks.lsm9ds1 = {}
 confBlocks.lsm9ds1.nano33ble = {
