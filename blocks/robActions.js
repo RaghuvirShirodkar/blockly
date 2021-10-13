@@ -133,6 +133,7 @@ Blockly.Blocks['robActions_motor_on'] = {
         case 'mbot':
             ports = [ [ Blockly.Msg.MOTOR + ' ' + 'M1', '1' ], [ Blockly.Msg.MOTOR + ' ' + 'M2', '2' ] ];
             break;
+        case 'mbot2':
         case 'wedo':
             this.action = 'MOTOR';
             ports = [];
@@ -145,7 +146,7 @@ Blockly.Blocks['robActions_motor_on'] = {
                         var configs = func.call(blocks[x]);
                         for (var i = 0; i < configs.length; i++) {
                             var config = configs[i];
-                            if (config.type === 'motor') {
+                            if (config.type === 'motor' || config.type === 'robbrick_motor_mbot2') {
                                 ports.push([ config.name, config.name ]);
                             }
                         }
@@ -169,7 +170,7 @@ Blockly.Blocks['robActions_motor_on'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.MOTOR_ON_TOOLTIP);
-        if (this.workspace.device !== 'wedo') {
+        if (this.workspace.device !== 'wedo' && this.workspace.device != 'mbot2') {
             this.appendValueInput('POWER').appendField(dropDownPorts, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
         } else {
             this.appendValueInput('POWER').appendField(Blockly.Msg.ACTION_MOTOR).appendField(dropDownPorts, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -208,7 +209,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
         } else if (this.workspace.device === 'mbot') {
             ports = [ [ Blockly.Msg.MOTOR + ' ' + 'M1', '1' ], [ Blockly.Msg.MOTOR + ' ' + 'M2', '2' ] ];
         }
-        if (this.workspace.device === 'wedo') {
+        if (this.workspace.device === 'wedo' || this.workspace.device === 'mbot2' ) {
             this.action = 'MOTOR';
             var portList = [];
             var container = Blockly.Workspace.getByContainer("bricklyDiv");
@@ -220,7 +221,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                         var configs = func.call(blocks[x]);
                         for (var i = 0; i < configs.length; i++) {
                             var config = configs[i];
-                            if (config.type === 'motor') {
+                            if (config.type === 'motor' || config.type === 'robbrick_motor_mbot2') {
                                 portList.push([ config.name, config.name ]);
                             }
                         }
@@ -395,7 +396,7 @@ Blockly.Blocks['robActions_motor_stop'] = {
                 [Blockly.Msg.MOTOR + ' ' + Blockly.Msg.MOTOR_RIGHT, 'RMOTOR']];
         }
         var motorPort = new Blockly.FieldDropdown(ports);
-        if (this.workspace.device === 'wedo') {
+        if (this.workspace.device === 'wedo' || this.workspace.device === 'mbot2') {
             this.action = 'MOTOR';
             var portList = [];
             var container = Blockly.Workspace.getByContainer("bricklyDiv");
@@ -407,7 +408,7 @@ Blockly.Blocks['robActions_motor_stop'] = {
                         var configs = func.call(blocks[x]);
                         for (var i = 0; i < configs.length; i++) {
                             var config = configs[i];
-                            if (config.type === 'motor') {
+                            if (config.type === 'motor' || config.type === 'robbrick_motor_mbot2') {
                                 portList.push([ config.name, config.name ]);
                             }
                         }

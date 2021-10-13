@@ -76,18 +76,13 @@ sensors.accelerometer.mbot = {
 sensors.accelerometer.mbot2 = {
     title : 'ACCELEROMETER',
     modes : [ {
-        name : 'X',
+        name : 'VALUE',
         type : 'Number',
-        unit : 'g'
-    }, {
-        name : 'Y',
-        type : 'Number',
-        unit : 'g'
-    }, {
-        name : 'Z',
-        type : 'Number',
-        unit : 'g'
+        unit : 'g',
+        op : 'NUM_REV',
+        value : 0
     } ],
+    slots : [ [ 'x', 'X' ], [ 'y', 'Y' ], [ 'z', 'Z' ]],
     ports : 'CONFIGURATION',
     portsHidden : true
 };

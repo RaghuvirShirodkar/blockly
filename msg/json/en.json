@@ -1,7 +1,11 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
+<<<<<<< HEAD
 		"lastupdated": "2021-10-15 14:14:54.860050",
+=======
+		"lastupdated": "2021-10-13 14:28:12.723858",
+>>>>>>> DifferentialDrive block, motor_mbot2 Block
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -492,6 +496,7 @@
 	"MOTOR_STOP": "stop",
 	"MOTOR_FLOAT": "float",
 	"MOTOR_BRAKE": "brake",
+	"DIFFERENTIAL_DRIVE": "differential drive",
 	"DISPLAY_SHOW": "show",
 	"DISPLAY_COL": "in column",
 	"DISPLAY_ROW": "in row",
@@ -1423,6 +1428,7 @@
 	"SENSOR_HUMIDITY_ARDUINO": "humidity sensor DHT11",
 	"SENSOR_HUMIDITY_SENSEBOX": "humidity/temperature sensor HDC1080",
 	"AND": "and",
+	"ENCODER_MOTOR": "encoder motor",
 	"STEP_MOTOR": "step motor",
 	"STEP_MOTOR_ARDUINO": "step motor 28BYJ-48",
 	"SENSOR_MOISTURE": "moisture sensor",

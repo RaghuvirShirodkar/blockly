@@ -1444,6 +1444,11 @@ confBlocks.ledbar.calliope = {
     },
     sensor: false
 };
+confBlocks.ledbar.mbot2 = {
+    title: 'LEDBAR',
+    sensor: false,
+    inbuilt: true,
+}
 
 confBlocks.callibot = {}
 confBlocks.callibot.calliope = {

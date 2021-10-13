@@ -64,7 +64,46 @@ Blockly.Blocks['robBrick_Arduino-Brick'] = {
         this.setDeletable(false);
     }
 };
+Blockly.Blocks['robBrick_differentialDrive-Brick'] = {
+    init: function () {
+        this.setColour(Blockly.CAT_ACTION_RGB);
+        var motorPort1 = new Blockly.FieldDropdown([['EM1', 'EM1'], ['EM2', 'EM2']]);
+        var motorPort2 = new Blockly.FieldDropdown([['EM1', 'EM1'], ['EM2', 'EM2']]);
+        
+        motorPort2.setValue('EM2');
+        var diameter = new Blockly.FieldTextInput("5.6", Blockly.FieldTextInput.numberValidator);
+        var width = new Blockly.FieldTextInput("18", Blockly.FieldTextInput.numberValidator);
+        var name = Blockly.Msg.DIFFERENTIAL_DRIVE;
+        
+        this.varMotorPort = true;
 
+        this.appendDummyInput().appendField(new Blockly.FieldLabel(name, 'NAME'));
+        this.appendDummyInput().appendField(Blockly.Msg.BRICK_WHEEL_DIAMETER, 'wheelDiameter').appendField(diameter, 'diameter');
+        this.appendDummyInput().appendField(Blockly.Msg.BRICK_TRACK_WIDTH, 'trackWidth').appendField(width, 'width');
+        this.appendDummyInput().appendField(Blockly.Msg.BRICK_PORT).appendField(motorPort1, 'motorPort1').appendField('                  ', 'blank').appendField(Blockly.Msg.MOTOR_LEFT, 'VAR');
+        this.appendDummyInput().appendField(Blockly.Msg.BRICK_PORT).appendField(motorPort2, 'motorPort2').appendField('                ', 'blank').appendField(Blockly.Msg.MOTOR_RIGHT, 'VAR1');
+        this.updateMotors();
+    },
+    getVarDecl: function () {
+        return [this.getFieldValue('VAR'), this.getFieldValue('VAR1')];
+    },
+    updateMotors: function() {
+        var topBlocks = Blockly.getMainWorkspace().getTopBlocks(true);
+        for (var i = 0; i < topBlocks.length; i++) {
+            var block = topBlocks[i];
+            if (block.type.indexOf('robBrick_motor_') !== -1) {
+                if(typeof block.updateShape_ == 'function'){
+                    block.updateShape_();
+                }
+            }
+        }
+    },
+    onDispose: function() {
+        Blockly.RobConfig.disposeConfig(this);
+        this.varMotorPort = false;
+        this.updateMotors();
+    }
+}
 Blockly.Blocks['robBrick_WeDo-Brick'] = {
     init : function() {
         var name = Blockly.Variables.findLegalName(Blockly.Msg.BRICKNAME_WEDO.charAt(0).toUpperCase(), this);
@@ -703,10 +742,80 @@ Blockly.Blocks['robBrick_motor_geared'] = {
         this.appendDummyInput().appendField(Blockly.Msg.GEARED_MOTOR);
         this.appendDummyInput().appendField(Blockly.Msg.MOTOR_SIDE).appendField(motorSide, 'MOTOR_DRIVE').setAlign(Blockly.ALIGN_RIGHT);
         this.setOutput(true, 'Actor');
-        this.setTooltip(Blockly.Msg.MOTOR_GEARED_TOOLTIP);
     }
 };
+Blockly.Blocks['robBrick_motor_mbot2'] = {
+    /**
+     * Represent an encoder motor of mbot2.
+     * 
+     * @constructs robBrick_motor_mbot2
+     * @memberof Block
+     */
+    init: function () {
+        this.confBlock = 'motor';
+        this.setColour(Blockly.CAT_ACTION_RGB);
+        var nameBase = 'EM1'
+        var name = Blockly.RobConfig.findLegalName(nameBase, this);
+        this.nameOld = name;
+        var nameField = new Blockly.FieldTextInput(name, this.validateName);
+        this.appendDummyInput().appendField(Blockly.Msg.ENCODER_MOTOR,'SENSORTITLE').appendField(nameField, 'NAME');
+        this.appendDummyInput('PORTS').appendField(Blockly.Msg.BRICK_PORT).appendField(new Blockly.FieldDropdown(this.getMotorList()), 'MOTOR_DRIVE').setAlign(Blockly.ALIGN_RIGHT);
+    },
+    getConfigDecl : function() {
+        return [{
+            'type' : this.type.toLowerCase(),
+            'name' : this.getFieldValue('NAME'),
+        }];
+    },
+    validateName: function (name) {
+        var block = this.sourceBlock_;
+        name = name.replace(/[\s\xa0]+/g, '').replace(/^ | $/g, '');
+        // no name set -> invalid
+        var nameOld = block.nameOld;
+        if (name === '')
+            return null;
+        if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/)){
+            return null;
+        }
+        var subComp = block.inputList.filter(function (item) {
+            return (item.nameOld) ? item.nameOld === name : item.fieldRow[1].getText() === name;
+        })[0];
 
+        if (subComp) {
+            subComp.nameOld = name;
+            nameOld = name;
+        }
+        // Ensure two identically-named variables don't exist.
+        name = Blockly.RobConfig.findLegalName(name, block, nameOld);
+        Blockly.RobConfig.renameConfig(this.sourceBlock_, nameOld, name, Blockly.Workspace.getByContainer("blocklyDiv"));
+        block.nameOld = name;
+        return name;
+    },
+    doValueInvalid_: function() {
+        Blockly.RobConfig.renameConfig(this.sourceBlock_, this.nameOld, this.nameOld, Blockly.Workspace.getByContainer("blocklyDiv"));
+    },
+    getMotorList: function () {
+        var variableList = [['EM1', 'EM1'], ['EM2', 'EM2']];
+        var topBlocks = Blockly.getMainWorkspace().getTopBlocks(true);
+        for (var i = 0; i < topBlocks.length; i++) {
+            var block = topBlocks[i];
+            if (block.varMotorPort) {
+                if (block.getVarDecl) {
+                    for (var j = 0; j < block.getVarDecl().length; j++) {
+                        variableList.push([block.getVarDecl()[j], block.getVarDecl()[j]]);
+                    }
+                }
+            }
+        }
+        return variableList;
+    },
+    updateShape_: function () {
+        var dropValue = this.getField("MOTOR_DRIVE").getValue();
+        this.getInput('PORTS').removeField('MOTOR_DRIVE');
+        this.getInput('PORTS').appendField(new Blockly.FieldDropdown(this.getMotorList()), 'MOTOR_DRIVE');
+        this.getField("MOTOR_DRIVE").setValue(dropValue);
+    }
+}
 Blockly.Blocks['robBrick_led_matrix'] = {
     /**
      * Represent an led matrix.
