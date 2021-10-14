@@ -78,7 +78,6 @@ goog.require('Blockly.Blocks.naoColour');
 goog.require('Blockly.Blocks.naoSensors'); 
 goog.require('Blockly.Blocks.procedures'); 
 goog.require('Blockly.Blocks.robActions');
-goog.require('Blockly.Blocks.robActionsNewConfig');
 goog.require('Blockly.Blocks.robBrick'); 
 goog.require('Blockly.Blocks.robColour'); 
 goog.require('Blockly.Blocks.robCommunication'); 

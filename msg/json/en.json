@@ -2,10 +2,14 @@
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		"lastupdated": "2021-10-15 14:14:54.860050",
 =======
 		"lastupdated": "2021-10-13 14:28:12.723858",
 >>>>>>> DifferentialDrive block, motor_mbot2 Block
+=======
+		"lastupdated": "2021-10-14 15:24:42.278010",
+>>>>>>> Minor changes, partial fix for invalid name issue
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -496,7 +500,6 @@
 	"MOTOR_STOP": "stop",
 	"MOTOR_FLOAT": "float",
 	"MOTOR_BRAKE": "brake",
-	"DIFFERENTIAL_DRIVE": "differential drive",
 	"DISPLAY_SHOW": "show",
 	"DISPLAY_COL": "in column",
 	"DISPLAY_ROW": "in row",
@@ -1447,6 +1450,7 @@
 	"ACTION_STEPMOTOR": "step motor",
 	"ACTION_SERVO": "servo motor",
 	"ACTION_SERVO_ARDUINO": "servo motor SG90",
+	"ACTION_DIFFERENTIAL_DRIVE": "differential drive",
 	"MOISTURE_TOOLTIP": "Represents a moisture sensor.",
 	"POTENTIOMETER_TOOLTIP": "Represents a potentiometer.",
 	"TEMPERATURE_TOOLTIP": "Represents a temperature sensor.",
