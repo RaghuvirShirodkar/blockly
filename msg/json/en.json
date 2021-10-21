@@ -1,15 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-<<<<<<< HEAD
-<<<<<<< HEAD
-		"lastupdated": "2021-10-15 14:14:54.860050",
-=======
-		"lastupdated": "2021-10-13 14:28:12.723858",
->>>>>>> DifferentialDrive block, motor_mbot2 Block
-=======
-		"lastupdated": "2021-10-14 15:24:42.278010",
->>>>>>> Minor changes, partial fix for invalid name issue
+		"lastupdated": "2021-10-21 17:40:23.633677",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -503,6 +495,7 @@
 	"DISPLAY_SHOW": "show",
 	"DISPLAY_COL": "in column",
 	"DISPLAY_ROW": "in row",
+	"DISPLAY_NEW_ROW": "in new row",
 	"DISPLAY_CLEAR": "clear display",
 	"DISPLAY_PICTURE": "picture",
 	"DISPLAY_PICTURE_GLASSES": "glasses",
@@ -1442,8 +1435,10 @@
 	"SENSOR_RFID_ARDUINO": "RFID-RC522 reader",
 	"ACTION_LCD": "LCD 1602",
 	"ACTION_LCDI2C": "LCD 1602 I²C",
+	"ACTION_LCD_MBOT2_BRUSH": "set display brush",
 	"ACTION_OLEDSSD1306I2C": "OLED SSD1306 I²C",
 	"ACTION_LED": "LED",
+	"ACTION_LED_MBOT2": "LEDs",
 	"ACTION_PLAY": "play",
 	"ACTION_RELAY": "relay SRD-05VDC-SL-C",
 	"ACTION_RGBLED": "RGB LED",

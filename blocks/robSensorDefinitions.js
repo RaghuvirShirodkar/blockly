@@ -362,6 +362,28 @@ sensors.encoder.ev3 = {
     standardPort : 'B'
 };
 
+sensors.encoder.mbot2 = {
+    title : 'ENCODER',
+    modes : [ {
+        name : 'DEGREE',
+        type : 'Number',
+        unit : 'DEGREE',
+        op : 'NUM_REV',
+        value : 180
+    }, {
+        name : 'ROTATION',
+        type : 'Number',
+        unit : '',
+        op : 'NUM_REV',
+        value : 2
+    }, {
+        name : 'DISTANCE',
+        type : 'Number',
+        unit : 'CM'
+    } ],
+    ports : 'CONFIGURATION'
+}
+
 sensors.encoder.nxt = {
     title : 'ENCODER',
     modes : [ {
@@ -1534,8 +1556,8 @@ var sensorsAll = [];
 sensorsAll.botnroll = [ sensors.infrared.botnroll, sensors.light.botnroll, sensors.compass.botnroll, sensors.ultrasonic.botnroll, sensors.colour.botnroll,
         sensors.key.botnroll ];
 sensorsAll.mbot = [ sensors.key.mbot, sensors.ultrasonic.mbot, sensors.infrared.mbot, sensors.light.mbot, sensors.timer.mbot ];
-sensorsAll.mbot2 = [sensors.ultrasonic.mbot2, sensors.sound.mbot2, sensors.joystick.mbot2, sensors.key.mbot2, sensors.light.mbot2, sensors.gyro.mbot2, sensors.accelerometer.mbot2,
-        sensors.timer.mbot2, sensors.quadrgb.mbot2, sensors.line.mbot2];
+sensorsAll.mbot2 = [sensors.key.mbot2, sensors.ultrasonic.mbot2, sensors.sound.mbot2, sensors.joystick.mbot2, sensors.light.mbot2, sensors.gyro.mbot2, sensors.accelerometer.mbot2,
+        sensors.timer.mbot2, sensors.quadrgb.mbot2, sensors.line.mbot2, sensors.encoder.mbot2];
 sensorsAll.ev3 = [ sensors.touch.ev3, sensors.ultrasonic.ev3, sensors.colour.ev3, sensors.infrared.ev3, sensors.encoder.ev3, sensors.key.ev3, sensors.gyro.ev3,
         sensors.timer.ev3, sensors.compass.ev3, sensors.irseeker.ev3, sensors.htcolour.ev3, sensors.sound.ev3 ];
 sensorsAll.nxt = [ sensors.touch.nxt, sensors.sound.nxt, sensors.light.nxt, sensors.ultrasonic.nxt, sensors.encoder.nxt, sensors.key.nxt, sensors.colour.nxt,

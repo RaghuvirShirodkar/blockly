@@ -30,6 +30,12 @@ Blockly.Blocks['robSensors_encoder_reset'] = {
         var motorport = new Blockly.FieldDropdown([['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D']]);
         if (this.workspace.device === 'botnroll') {
             motorport = new Blockly.FieldDropdown([[Blockly.Msg.MOTOR_LEFT, 'B'], [Blockly.Msg.MOTOR_RIGHT, 'C']]);
+        } else if (this.workspace.device === 'mbot2') {
+            motorport = getConfigPorts('motor');
+            this.dependConfig = {
+                'type': 'motor',
+                'dropDown': motorport
+            };
         }
         this.appendDummyInput().appendField(Blockly.Msg.SENSOR_RESET).appendField(Blockly.Msg.SENSOR_ENCODER).appendField(motorport, 'SENSORPORT').appendField(Blockly.Msg.SENSOR_RESET_II);
         this.setPreviousStatement(true);
@@ -58,7 +64,14 @@ Blockly.Blocks['robSensors_sound_record'] = {
     init: function () {
         this.setColour(Blockly.CAT_SENSOR_RGB);
         var mode = new Blockly.FieldDropdown([[Blockly.Msg.START, 'start'], [Blockly.Msg.MOTOR_STOP, 'stop']])
-        this.appendDummyInput().appendField(mode, 'mode').appendField(Blockly.Msg.SENSOR_SOUND_RECORD);
+        var dropDownPorts = getConfigPorts('sound');
+
+        this.dependConfig = {
+            'type': 'sound',
+            'dropDown': dropDownPorts
+        };
+        this.appendDummyInput().appendField(mode, 'mode').appendField(Blockly.Msg.SENSOR_SOUND_RECORD).appendField(dropDownPorts, 'ACTORPORT');
+        hidePortIfOnlyInbuilt(this); 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.SOUND_RECORD_TOOLTIP);

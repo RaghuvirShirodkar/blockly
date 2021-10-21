@@ -296,7 +296,6 @@ confBlocks.ultrasonic.raspberrypi = {
         ['VCC', '5V']
     ]
 };
-confBlocks.ultrasonic.mbot2 = confBlocks.ultrasonic.calliope;
 
 confBlocks.light = {};
 confBlocks.light.arduino = {
@@ -502,19 +501,6 @@ confBlocks.infrared.arduino = {
         ['GND', 'GND'],
         ['VCC', '5V']
     ]
-};
-confBlocks.quadrgb = {};
-confBlocks.quadrgb.mbot2 = {
-    title: 'QUADRGB',
-    ports: [
-        ['pin', 'PIN1']
-    ],
-    pins: function (a) {
-        return [
-            ['A1', '1']
-        ];
-    },
-    sensor: true
 };
 confBlocks.temperature = {};
 confBlocks.temperature.arduino = {
@@ -762,6 +748,11 @@ confBlocks.lcd.arduino = {
         ['RW', 'GND']
     ]
 };
+confBlocks.lcd.mbot2= {
+    title:'LCD',
+    inbuilt: true,
+    sensor: false
+}
 
 confBlocks.oledssd1306i2c = {};
 confBlocks.oledssd1306i2c.arduino = {
@@ -853,6 +844,11 @@ confBlocks.led.festobionic = {
         ['GND', 'GND']
     ]
 };
+confBlocks.led.mbot2 = {
+    title: 'LED',
+    sensor: false,
+    inbuilt: true,
+};
 confBlocks.led.sensebox = {
     title: 'LED',
     ports: [
@@ -909,6 +905,11 @@ confBlocks.buzzer.calliope = {
     ports: [
         ['pin', 'PIN1']
     ],
+    sensor: false,
+    inbuilt: true
+};
+confBlocks.buzzer.mbot2 = {
+    title: 'BUZZER',
     sensor: false,
     inbuilt: true
 };
@@ -1444,11 +1445,6 @@ confBlocks.ledbar.calliope = {
     },
     sensor: false
 };
-confBlocks.ledbar.mbot2 = {
-    title: 'LEDBAR',
-    sensor: false,
-    inbuilt: true,
-}
 
 confBlocks.callibot = {}
 confBlocks.callibot.calliope = {
