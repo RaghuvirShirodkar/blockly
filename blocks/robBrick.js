@@ -844,7 +844,7 @@ Blockly.Blocks['robBrick_mbuild_port'] = {
         this.appendDummyInput().appendField("mBuild "+ Blockly.Msg.BRICK_PORT, 'MBuild').appendField(nameField, 'NAME');
         this.appendStatementInput('MBUILDSENSOR');
         this.setDeletable(false);
-
+        this.setTooltip(Blockly.Msg.MBUILD_PORT_TOOLTIP);
     },
     getConfigDecl: function () {
         return getConfigDecl(this);
@@ -863,7 +863,6 @@ Blockly.Blocks['robBrick_mbuild_ultrasonic2'] = {
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-
     },
     getConfigDecl: function () {
         return getConfigDecl(this);

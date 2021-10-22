@@ -615,6 +615,7 @@ confBlocks.joystick = {};
 confBlocks.joystick.mbot2 = {
     title: 'JOYSTICK',
     sensor: true,
+    inbuilt: true
 }
 
 confBlocks.key = {};

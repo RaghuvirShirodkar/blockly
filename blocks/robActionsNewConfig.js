@@ -24,13 +24,12 @@ Blockly.Blocks['robActions_ultrasonic2_led'] = {
         };
         var ports = new Blockly.FieldDropdown([['1', 'LED1'], ['2', 'LED2'], ['3', 'LED3'], ['4', 'LED4'], ['5', 'LED5'], ['6', 'LED6'], ['7', 'LED7'], ['8', 'LED8'], [Blockly.Msg.NAO_LED_ALL, 'LEDALL']]);
 
-
         this.appendDummyInput().appendField(Blockly.Msg.SENSOR_ULTRASONIC + " 2 ").setAlign(Blockly.ALIGN_RIGHT).appendField(sensorPorts, 'ACTORPORT').appendField(Blockly.Msg.ACTION_LED_MBOT2).appendField().appendField(ports, 'LED');
         this.appendValueInput('BRIGHTNESS').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.DISPLAY_PIXEL_BRIGHTNESS);
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        // this.setTooltip(Blockly.Msg.);
+        this.setTooltip(Blockly.Msg.LEDBAR_ULTRASONIC2_SET_TOOLTIP);
     }
 };
 
@@ -48,7 +47,7 @@ Blockly.Blocks['robActions_quadRGB_led_on'] = {
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        // this.setTooltip(Blockly.Msg.);
+        this.setTooltip(Blockly.Msg.LED_ON_QUADRGB_TOOLTIP);
     }
 };
 
@@ -66,7 +65,7 @@ Blockly.Blocks['robActions_quadRGB_led_off'] = {
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        // this.setTooltip(Blockly.Msg.);
+        this.setTooltip(Blockly.Msg.LED_OFF_QUADRGB_TOOLTIP);
     }
 };
 
@@ -85,7 +84,7 @@ Blockly.Blocks['robActions_led_setBrightness'] = {
         hidePortIfOnlyInbuilt(this);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        //this.setTooltip(Blockly.Msg.DISPLAY_SET_BRIGHTNESS_TOOLTIP);
+        this.setTooltip(Blockly.Msg.LED_SET_BRIGHTNESS_TOOLTIP);
     }
 };
 
@@ -103,7 +102,7 @@ Blockly.Blocks['robActions_display_set_colour'] = {
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        // this.setTooltip(Blockly.Msg.);
+        this.setTooltip(Blockly.Msg.ACTION_LCD_MBOT2_BRUSH_TOOLTIP);
     }
 };
 
@@ -122,6 +121,6 @@ Blockly.Blocks['robActions_println'] = {
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.DISPLAY_TEXT_TOOLTIP);
+        this.setTooltip(Blockly.Msg.DISPLAY_PRINTLN_TOOLTIP);
     }
 };
