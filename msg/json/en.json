@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2021-10-22 15:45:26.945743",
+		"lastupdated": "2021-10-25 19:02:12.018976",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1429,7 +1429,7 @@
 	"SENSOR_HUMIDITY_ARDUINO": "humidity sensor DHT11",
 	"SENSOR_HUMIDITY_SENSEBOX": "humidity/temperature sensor HDC1080",
 	"AND": "and",
-	"ENCODER_MOTOR": "encoder motor",
+	"ACTION_ENCODER": "encoder motor",
 	"STEP_MOTOR": "step motor",
 	"STEP_MOTOR_ARDUINO": "step motor 28BYJ-48",
 	"SENSOR_MOISTURE": "moisture sensor",
@@ -1450,12 +1450,14 @@
 	"ACTION_STEPMOTOR": "step motor",
 	"ACTION_SERVO": "servo motor",
 	"ACTION_SERVO_ARDUINO": "servo motor SG90",
-	"ACTION_DIFFERENTIAL_DRIVE": "differential drive",
+	"ACTION_DIFFERENTIALDRIVE": "differential drive",
+	"DIFFERENTIALDRIVE_TOOLTIP": "shows that a system has a differential drive.",
 	"MOISTURE_TOOLTIP": "Represents a moisture sensor.",
 	"POTENTIOMETER_TOOLTIP": "Represents a potentiometer.",
 	"TEMPERATURE_TOOLTIP": "Represents a temperature sensor.",
 	"HUMIDITY_TOOLTIP": "Represents a humidity sensor.",
 	"ENCODER_TOOLTIP": "Represents an encoder.",
+	"ENCODER_TOOLTIP_MBOT2": "Represents an encoder motor.",
 	"MOTION_TOOLTIP": "Represents a motion sensor.",
 	"PULSETOOLTIP": "Represents a pulse sensor.",
 	"DROP_TOOLTIP": "Represents a drop sensor.",

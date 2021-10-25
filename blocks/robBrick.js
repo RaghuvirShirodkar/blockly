@@ -64,38 +64,6 @@ Blockly.Blocks['robBrick_Arduino-Brick'] = {
         this.setDeletable(false);
     }
 };
-Blockly.Blocks['robBrick_differentialDrive'] = {
-    /**
-     * Differential drive block.
-     * 
-     * @constructs robBrick_differentialDrive
-     * @memberof Block
-     */
-    init: function () {
-        this.title = 'DIFFDRIVE';
-        this.setColour(Blockly.CAT_ACTION_RGB);
-        var motorPorts = [['EM1', 'EM1'], ['EM2', 'EM2']];
-        var motorPort1 = new Blockly.FieldDropdown(motorPorts);
-        var motorPort2 = new Blockly.FieldDropdown(motorPorts);
-        motorPort2.setValue('EM2');
-        var diameter = new Blockly.FieldTextInput("6.5", Blockly.FieldTextInput.numberValidator);
-        var width = new Blockly.FieldTextInput("11.5", Blockly.FieldTextInput.numberValidator);
-        var nameField = new Blockly.FieldTextInput(Blockly.RobConfig.findLegalName('_D', this),validateName); 
-        nameField.setVisible(false);
-
-        this.appendDummyInput().appendField(Blockly.Msg.ACTION_DIFFERENTIAL_DRIVE).appendField(nameField, 'NAME');
-        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.BRICK_WHEEL_DIAMETER).appendField(diameter, 'WHEELDIAMETER');
-        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.BRICK_TRACK_WIDTH).appendField(width, 'TRACKWIDTH');
-        this.appendDummyInput().appendField(Blockly.Msg.BRICK_PORT + " " + Blockly.Msg.MOTOR_LEFT).appendField(motorPort1, 'motorPort1');
-        this.appendDummyInput().appendField(Blockly.Msg.BRICK_PORT + " " + Blockly.Msg.MOTOR_RIGHT).appendField(motorPort2, 'motorPort2');
-    },
-    getConfigDecl: function () {
-        return getConfigDecl(this);
-    },
-    onDispose: function () {
-        Blockly.RobConfig.disposeConfig(this);
-    }
-}
 Blockly.Blocks['robBrick_WeDo-Brick'] = {
     init : function() {
         var name = Blockly.Variables.findLegalName(Blockly.Msg.BRICKNAME_WEDO.charAt(0).toUpperCase(), this);
@@ -736,31 +704,6 @@ Blockly.Blocks['robBrick_motor_geared'] = {
         this.setOutput(true, 'Actor');
     }
 };
-Blockly.Blocks['robBrick_motor_mbot2'] = {
-    /**
-     * Represent an encoder motor of mbot2.
-     * 
-     * @constructs robBrick_motor_mbot2
-     * @memberof Block
-     */
-    init: function () {
-        this.confBlock = 'encoder';
-        this.title = 'ENCODER';
-        this.setColour(Blockly.CAT_ACTION_RGB);
-        var name = Blockly.RobConfig.findLegalName(Blockly.Msg.ENCODER_MOTOR.charAt(0).toUpperCase(), this);
-        this.nameOld = name;
-        var nameField = new Blockly.FieldTextInput(name, validateName);
-        var portList = [['EM1', 'EM1'], ['EM2', 'EM2']];
-        this.appendDummyInput().appendField(Blockly.Msg.ENCODER_MOTOR, 'SENSORTITLE').appendField(nameField, 'NAME');
-        this.appendDummyInput().appendField(Blockly.Msg.BRICK_PORT).appendField(new Blockly.FieldDropdown(portList), 'MOTOR_DRIVE').setAlign(Blockly.ALIGN_RIGHT);
-    },
-    getConfigDecl: function () {
-        return getConfigDecl(this);
-    },
-    onDispose: function () {
-        Blockly.RobConfig.disposeConfig(this);
-    }
-}
 Blockly.Blocks['robBrick_led_matrix'] = {
     /**
      * Represent an led matrix.
@@ -835,7 +778,7 @@ Blockly.Blocks['robBrick_actor'] = {
     }
 };
 
-Blockly.Blocks['robBrick_mbuild_port'] = {
+Blockly.Blocks['robConf_mbuild_port'] = {
     init: function () {
         this.setColour(Blockly.CAT_SENSOR_RGB);
         this.title = 'MBUILD';

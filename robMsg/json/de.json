@@ -241,7 +241,8 @@
     "MODE_CLAP": "klatschen",
     "MODE_RCCODE": "RC-Code",
     "MOTOR": "Motor",
-    "ACTION_DIFFERENTIAL_DRIVE": "Differentialantrieb",
+    "ACTION_DIFFERENTIALDRIVE": "Differentialantrieb",
+    "DIFFERENTIALDRIVE_TOOLTIP": "Zeigt, dass ein Differentialantrieb vorhanden ist.",
     "MOTORDIFF_ON_FOR_TOOLTIP": "Startet den Roboter mit einer bestimmten Geschwindigkeit und stoppt nach einer bestimmten Strecke.",
     "MOTORDIFF_ON_TOOLTIP": "Startet den Roboter mit einer bestimmten Geschwindigkeit.",
     "MOTORDIFF_STOP_TOOLTIP": "Stoppt den Roboter.",
@@ -1060,6 +1061,8 @@
     "TEMPERATURE_TOOLTIP": "Block für den Temperatursensor.",
     "HUMIDITY_TOOLTIP": "Block für den Luftfeuchtigkeitsensor.",
     "ENCODER_TOOLTIP": "Block für den Drehsensor.",
+    "ENCODER_TOOLTIP_MBOT2": "Block für den Encodermotor.",
+
     "MOTION_TOOLTIP": "Block für den Bewegungssensor.",
     "PULSETOOLTIP": "Block für den Pulssensor.",
     "DROP_TOOLTIP": "Block für den Tropfensensor.",

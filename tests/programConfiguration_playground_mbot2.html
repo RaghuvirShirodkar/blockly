@@ -6,8 +6,8 @@
     <title>Program and Configuration Playground</title>
     <script src="../blockly_compressed.js"></script>
     <!-- <script src="../blocks_compressed.js"></script> -->
-    <script src="../msg/js/de.js"></script>
-    <!-- <script src="../msg/js/robMessages.js"></script> -->
+    <!-- <script src="../msg/js/de.js"></script> -->
+    <script src="../msg/js/robMessages.js"></script>
     <script src="../core/blockly.js"></script>
     <script src="../core/css.js"></script>
     <script src="../core/inject.js"></script>
@@ -89,23 +89,25 @@
                 minScale: 0.25,
                 scaleSpeed: 1.1
             },
-            checkInTask: ['start', '_def', 'event', '-Brick'],
+            checkInTask: ['start', '_def', 'event', '-Brick', 'robConf'],
             variableDeclaration: true,
             robControls: true
         };
 
 
         var defaultConfXML = "<block_set xmlns='http://de.fhg.iais.roberta.blockly' robottype='mbot2' xmlversion='' description='' tags=''><instance x='300' y='50'>"
-            +"<block type='robBrick_differentialDrive' intask=\"true\" deletable=\"false\"></block>"
+            +"<block type='robConf_differentialdrive' intask=\"true\" deletable=\"false\">"
+                +"<field name=\"MOTOR_R\">EM2</field>"
+                +"</block>"
             +"</instance>"
             +"<instance x='100' y='50'>"
-                +"<block type='robBrick_motor_mbot2' intask=\"true\" deletable=\"false\">"
+                +"<block type='robConf_encoder' intask=\"true\" deletable=\"false\">"
                     +"<field name=\"NAME\">L</field>"
                 +"</block>"
             +"</instance>"
             +"<instance x='100' y='120'>"
-                +"<block type='robBrick_motor_mbot2' intask=\"true\" deletable=\"false\">"
-                    + "<field name=\"MOTOR_DRIVE\">EM2</field>"
+                +"<block type='robConf_encoder' intask=\"true\" deletable=\"false\">"
+                    + "<field name=\"PORT1\">EM2</field>"
                     + "<field name=\"NAME\">R</field>"
                 +"</block>"
             + "</instance>"
@@ -152,7 +154,7 @@
                 +"</block>"
             +"</instance>"
             +"<instance x='550' y='250'>"
-                +"<block type='robBrick_mbuild_port' intask=\"true\" deletable=\"false\">"
+                +"<block type='robConf_mbuild_port' intask=\"true\" deletable=\"false\">"
                     // does not work in firefox
                     // +"<statement name=\"MBUILDSENSOR\">"
                     //     +"<block type='robBrick_mbuild_ultrasonic2' intask=\"true\">"
@@ -415,7 +417,18 @@
                 <block type="robActions_serial_print"></block>
             </category>
             <category name="TOOLBOX_SOUND" svg="true">
-                <block type="mbedActions_play_tone"></block>
+                <block type="mbedActions_play_tone">
+                    <value name="FREQUENCE">
+					    <block type="math_number">
+						    <field name="NUM">300</field>
+					    </block>
+				    </value>
+				    <value name="DURATION">
+					    <block type="math_number">
+						    <field name="NUM">100</field>
+					    </block>
+				    </value>
+                </block>
                 <block type="robActions_play_setVolume">
                     <value name="VOLUME">
                         <block type="math_number">
@@ -427,11 +440,34 @@
                 <block type="mbedActions_play_note"></block>
             </category>
             <category name="TOOLBOX_LIGHT" svg="true">
-                <block type="robActions_led_on"></block>
-                <block type="robActions_led_off"></block>
-                <block type="robActions_led_setBrightness"></block>
-                <block type="robActions_ultrasonic2_led"></block>
-                <block type="robActions_quadRGB_led_on"></block>
+                <block type="robActions_led_on">
+                    <value name="COLOR">
+                        <block type="robColour_picker">
+                            <field name="COLOUR">#cc0000</field>
+                        </block>
+                    </value>
+                </block>                <block type="robActions_led_off"></block>
+                <block type="robActions_led_setBrightness">
+                    <value name="BRIGHTNESS">
+					    <block type="math_number">
+					      	<field name="NUM">50</field>
+					    </block>
+				    </value>     
+               </block>
+                <block type="robActions_ultrasonic2_led">
+                    <value name="BRIGHTNESS">
+					    <block type="math_number">
+					      	<field name="NUM">50</field>
+					    </block>
+				    </value> 
+                </block>
+                <block type="robActions_quadRGB_led_on">
+                    <value name="COLOR">
+                        <block type="robColour_picker">
+                            <field name="COLOUR">#cc0000</field>
+                        </block>
+                    </value>
+                </block>
                 <block type="robActions_quadRGB_led_off"></block>
                 <block type="robActions_brickLight_on"></block>
             </category>
@@ -574,11 +610,10 @@
         </category>
         <category name="TOOLBOX_LIST" svg="true">
             <block type="robLists_create_with">
-                <mutation items="0" list_type="Number">
-            </block>
+                <mutation items="0" list_type="Number"></mutation>
             </block>
             <block type="robLists_create_with">
-                <mutation items="3" list_type="Number">
+                <mutation items="3" list_type="Number"></mutation>
             </block>
             <value name="ADD0">
                 <block type="math_number"></block>

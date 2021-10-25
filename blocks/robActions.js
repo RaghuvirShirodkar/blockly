@@ -420,9 +420,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([ [ Blockly.Msg.MOTOR_FOREWARD, 'FOREWARD' ], [ Blockly.Msg.MOTOR_BACKWARD, 'BACKWARD' ] ]);
          if (this.workspace.device === 'mbot2') {
-             var dropDownPorts = getConfigPorts('diffdrive');
+             var dropDownPorts = getConfigPorts('differentialdrive');
              this.dependConfig = {
-                 'type': 'diffdrive',
+                 'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
              this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -441,9 +441,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([ [ Blockly.Msg.MOTOR_FOREWARD, 'FOREWARD' ], [ Blockly.Msg.MOTOR_BACKWARD, 'BACKWARDS' ] ]);
          if (this.workspace.device === 'mbot2'){
-            var dropDownPorts= getConfigPorts('diffdrive');
+            var dropDownPorts= getConfigPorts('differentialdrive');
             this.dependConfig = {
-                'type' : 'diffdrive',
+                'type' : 'differentialdrive',
                 'dropDown' : dropDownPorts
             };
             this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -468,9 +468,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          this.setInputsInline(true);
          if (this.workspace.device === 'mbot2') {
-             var dropDownPorts = getConfigPorts('diffdrive');
+             var dropDownPorts = getConfigPorts('differentialdrive');
              this.dependConfig = {
-                 'type': 'diffdrive',
+                 'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
              this.appendDummyInput().appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STOP);
@@ -489,9 +489,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([[Blockly.Msg.MOTOR_RIGHT, 'RIGHT'], [Blockly.Msg.MOTOR_LEFT, 'LEFT']]);
          if (this.workspace.device === 'mbot2') {
-             var dropDownPorts = getConfigPorts('diffdrive');
+             var dropDownPorts = getConfigPorts('differentialdrive');
              this.dependConfig = {
-                 'type': 'diffdrive',
+                 'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
              this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -510,9 +510,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([[Blockly.Msg.MOTOR_RIGHT, 'RIGHT'], [Blockly.Msg.MOTOR_LEFT, 'LEFT']]);
          if (this.workspace.device === 'mbot2') {
-             var dropDownPorts = getConfigPorts('diffdrive');
+             var dropDownPorts = getConfigPorts('differentialdrive');
              this.dependConfig = {
-                 'type': 'diffdrive',
+                 'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
              this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -537,9 +537,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([ [ Blockly.Msg.MOTOR_FOREWARD, 'FOREWARD' ], [ Blockly.Msg.MOTOR_BACKWARD, 'BACKWARD' ] ]);
          if (this.workspace.device === 'mbot2') {
-            var dropDownPorts = getConfigPorts('diffdrive');
+            var dropDownPorts = getConfigPorts('differentialdrive');
             this.dependConfig = {
-                'type': 'diffdrive',
+                'type': 'differentialdrive',
                 'dropDown': dropDownPorts
             };
             this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
@@ -559,9 +559,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          this.setColour(Blockly.CAT_ACTION_RGB);
          var dropdown = new Blockly.FieldDropdown([ [ Blockly.Msg.MOTOR_FOREWARD, 'FOREWARD' ], [ Blockly.Msg.MOTOR_BACKWARD, 'BACKWARDS' ] ]);
          if (this.workspace.device === 'mbot2') {
-            var dropDownPorts = getConfigPorts('diffdrive');
+            var dropDownPorts = getConfigPorts('differentialdrive');
             this.dependConfig = {
-                'type': 'diffdrive',
+                'type': 'differentialdrive',
                 'dropDown': dropDownPorts
             };
             this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');

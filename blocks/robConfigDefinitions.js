@@ -808,6 +808,28 @@ confBlocks.lcdi2c.sensebox = {
     sensor: false
 };
 
+confBlocks.differentialdrive = {};
+confBlocks.differentialdrive.mbot2 = {
+    title: 'DIFFERENTIALDRIVE',
+    inputs: [
+        ['BRICK_WHEEL_DIAMETER','6.5'],
+        ['BRICK_TRACK_WIDTH','11.5']
+    ],
+    ports: [
+        ['MOTOR_LEFT', 'MOTOR_L'],
+        ['MOTOR_RIGHT', 'MOTOR_R']
+
+    ],
+    pins: function(a) {
+        return [
+            ['EM1', 'EM1'],
+            ['EM2', 'EM2']
+        ];
+    },
+    sensor: false,
+    inbuilt: true
+};
+
 confBlocks.led = {};
 confBlocks.led.arduino = {
     title: 'LED',
@@ -1234,6 +1256,20 @@ confBlocks.motor.raspberrypi = {
         ['GND', 'GND'],
         ['VCC', '5V']
     ]
+};
+
+confBlocks.encoder = {};
+confBlocks.encoder.mbot2 = {
+    title: 'ENCODER',
+    action: true,
+    ports: [
+        ['port', 'PORT1']
+    ],
+    pins: function(a) {
+        return [
+            ['EM1', 'EM1'],
+            ['EM2', 'EM2']
+        ];    },
 };
 
 confBlocks.digitalout = {};
