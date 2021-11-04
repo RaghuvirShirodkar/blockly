@@ -867,11 +867,6 @@ confBlocks.led.festobionic = {
         ['GND', 'GND']
     ]
 };
-confBlocks.led.mbot2 = {
-    title: 'LED',
-    sensor: false,
-    inbuilt: true,
-};
 confBlocks.led.sensebox = {
     title: 'LED',
     ports: [
@@ -1063,6 +1058,14 @@ confBlocks.rgbled.sensebox = {
         ['+', '5V'],
         ['GND', 'GND']
     ]
+};
+confBlocks.rgbled.mbot2 = {
+    title: 'RGBLED',
+    ports: [
+        ['pin', 'PIN1']
+    ],
+    sensor: false,
+    inbuilt: true
 };
 confBlocks.rgbled.raspberrypi = {
     title: 'RGBLED',

@@ -654,9 +654,9 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 'type': 'lcd',
                 'dropDown': dropDownPorts
             };
-            this.appendDummyInput().appendField(Blockly.Msg.ACTION_LCD_MBOT2, 'ACTORTITEL').appendField(dropDownPorts, 'ACTORPORT');
+            this.appendValueInput('OUT').appendField(dropDownPorts, 'ACTORPORT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.DISPLAY_SHOW + ' ' + Blockly.Msg.DISPLAY_TEXT);
             hidePortIfOnlyInbuilt(this);
-         } if (this.workspace.device === 'nxt') {
+         } else if (this.workspace.device === 'nxt') {
              this.appendValueInput('OUT').appendField(Blockly.Msg.DISPLAY_SHOW + ' ' + Blockly.Msg.DISPLAY_TEXT).setCheck(['Number', 'Boolean', 'String',
                  'Colour', 'Connection']);
          } else {
@@ -949,16 +949,6 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                  'dropDown' : dropDownPorts
              };
              this.appendDummyInput().appendField(Blockly.Msg.LED_ON).setAlign(Blockly.ALIGN_RIGHT).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdownLightState, 'SWITCH_BLINK');
-         } else if (this.workspace.device === 'mbot2') {
-            var dropDownPortsMbot2 = getConfigPorts('led');
-            this.dependConfig = {
-                'type' : 'led',
-                'dropDown' : dropDownPortsMbot2
-            };
-
-            var mbot2Slots = new Blockly.FieldDropdown([['1', 'LED1'], ['2', 'LED2'], ['3', 'LED3'], ['4', 'LED4'], ['5', 'LED5'], [Blockly.Msg.NAO_LED_ALL, 'LEDALL']]);
-            this.appendDummyInput().appendField(Blockly.Msg.LED_ON).setAlign(Blockly.ALIGN_RIGHT).appendField(dropDownPortsMbot2, 'ACTORPORT').appendField(mbot2Slots, 'SLOT').appendField(dropdownLightState, 'SWITCH_BLINK');
-            hidePortIfOnlyInbuilt(this);
          } else if (this.workspace.device === 'botnroll') {
              this.appendDummyInput().appendField(Blockly.Msg.BRICKLIGHT).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOD).appendField(dropdownLightState, 'SWITCH_BLINK');
          } else {
@@ -1023,16 +1013,16 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          } else if (this.workspace.device === 'mbot2') {
 
              var slots = new Blockly.FieldDropdown([['1', 'LED1'], ['2', 'LED2'], ['3', 'LED3'], ['4', 'LED4'], ['5', 'LED5'], [Blockly.Msg.NAO_LED_ALL, 'LEDALL']]);
-             ports = getConfigPorts('led');
+             ports = getConfigPorts('rgbled');
              this.dependConfig = {
-                 'type': 'led',
+                 'type': 'rgbled',
                  'dropDown': ports
              };
          }
          if (this.workspace.device === 'edison') {
              this.appendDummyInput('COLOR').appendField(Blockly.Msg.LED_ON).appendField(ports, 'ACTORPORT');
          } else if (this.workspace.device === 'mbot2'){
-            this.appendValueInput('COLOR').appendField(Blockly.Msg.LED_ON).appendField(ports, 'ACTORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
+            this.appendValueInput('COLOR').appendField(Blockly.Msg.RGBLED_ON).appendField(ports, 'ACTORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
             hidePortIfOnlyInbuilt(this);
          }else {
              this.appendValueInput('COLOR').appendField(Blockly.Msg.LED_ON).appendField(ports, 'ACTORPORT').appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
@@ -1076,13 +1066,13 @@ Blockly.Blocks['robActions_motor_on_for'] = {
              portList.push([ Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT'),
                      (Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT')).toUpperCase() ]);
          }
-         if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'sensebox') {
+         if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'sensebox' || this.workspace.device === 'mbot2') {
              var ports = getConfigPorts('rgbled');
              this.dependConfig = {
                  'type' : 'rgbled',
                  'dropDown' : ports
              };
-         } else if (this.workspace.device === 'wedo' || this.workspace.device === 'mbot2') {
+         } else if (this.workspace.device === 'wedo') {
              var ports = new Blockly.FieldDropdown(portList);
              this.dependConfig = {
                  'type': 'led',
@@ -1099,7 +1089,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
          }
 
          if (this.workspace.device === 'mbot2') {
-             this.appendDummyInput().appendField(Blockly.Msg.LED_OFF).appendField(ports, 'ACTORPORT').appendField(slots, 'SLOT');
+             this.appendDummyInput().appendField(Blockly.Msg.RGBLED_OFF).appendField(ports, 'ACTORPORT').appendField(slots, 'SLOT');
              hidePortIfOnlyInbuilt(this);
          } else {
              this.appendDummyInput().appendField(Blockly.Msg.LED_OFF).appendField(ports, 'ACTORPORT');

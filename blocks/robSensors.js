@@ -31,9 +31,9 @@ Blockly.Blocks['robSensors_encoder_reset'] = {
         if (this.workspace.device === 'botnroll') {
             motorport = new Blockly.FieldDropdown([[Blockly.Msg.MOTOR_LEFT, 'B'], [Blockly.Msg.MOTOR_RIGHT, 'C']]);
         } else if (this.workspace.device === 'mbot2') {
-            motorport = getConfigPorts('motor');
+            motorport = getConfigPorts('encoder');
             this.dependConfig = {
-                'type': 'motor',
+                'type': 'encoder',
                 'dropDown': motorport
             };
         }
