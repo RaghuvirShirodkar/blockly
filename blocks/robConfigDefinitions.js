@@ -649,6 +649,8 @@ confBlocks.key.calliope = {
 };
 confBlocks.key.microbit = confBlocks.key.calliope;
 confBlocks.key.sensebox = confBlocks.key.arduino;
+confBlocks.key.mbot2 = confBlocks.key.calliope;
+
 confBlocks.key.wedo = {
     title: 'KEY',
     bricks: true,
@@ -666,10 +668,6 @@ confBlocks.key.raspberrypi = {
         ['GND', 'GND']
     ]
 };
-confBlocks.key.mbot2 = {
-    title: 'KEY',
-    sensor: true
-}
 
 confBlocks.drop = {};
 confBlocks.drop.arduino = {
