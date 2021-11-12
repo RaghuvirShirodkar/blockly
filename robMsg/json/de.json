@@ -285,6 +285,8 @@
     "MOTOR_SETPOWER_TOOLTIP": "Setzt Leistung dieses Motors.",
     "MOTOR_SIDE": "Seite",
     "MOTOR_SPEED": "Tempo %",
+    "ROUNDS_PER_MINUTE_SPEED" : "Tempo U/min",
+    "MOTOR_SPEED_UNREGULATED" : "Leistung %",
     "MOTOR_SPEED_0": "Motor-Geschwindigkeit ist 0!",
     "MOTOR_STOP": "Stoppe",
     "MOTOR_STOP_TOOLTIP": "Stoppt die beiden Motoren A und B.",

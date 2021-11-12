@@ -177,7 +177,7 @@
                  'dropDown': dropDownPorts
              };
          } else if (this.workspace.device === 'mbot2') {
-             this.appendValueInput('POWER').appendField(Blockly.Msg.ACTION_MOTOR).appendField(dropDownPorts, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+             this.appendValueInput('POWER').appendField(Blockly.Msg.ACTION_MOTOR).appendField(dropDownPorts, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).setCheck('Number');
              this.dependConfig = {
                  'type': 'encoder',
                  'dropDown': dropDownPorts
@@ -237,7 +237,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 'type': 'encoder',
                 'dropDown': motorPort
             };
-            this.appendValueInput('POWER').appendField(Blockly.Msg.ACTION_MOTOR).appendField(motorPort, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+            this.appendValueInput('POWER').appendField(Blockly.Msg.ACTION_MOTOR).appendField(motorPort, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED, 'RPM').setCheck('Number');
         } else {
             this.appendValueInput('POWER').appendField(motorPort, 'MOTORPORT').appendField(Blockly.Msg.ON).appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
         }
@@ -425,7 +425,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                  'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
-             this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+             this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).setCheck('Number');
              hidePortIfOnlyInbuilt(this);
          } else {
              this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -446,7 +446,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 'type' : 'differentialdrive',
                 'dropDown' : dropDownPorts
             };
-            this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+            this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).setCheck('Number');
             hidePortIfOnlyInbuilt(this); 
          } else{
             this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_DRIVE).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -494,7 +494,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                  'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
-             this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+             this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).setCheck('Number');
              hidePortIfOnlyInbuilt(this);
          } else {
              this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -515,7 +515,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                  'type': 'differentialdrive',
                  'dropDown': dropDownPorts
              };
-             this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
+             this.appendValueInput('POWER').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).setCheck('Number');
              hidePortIfOnlyInbuilt(this);
          } else {
              this.appendValueInput('POWER').appendField(Blockly.Msg.MOTOR_TURN).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).setCheck('Number');
@@ -542,12 +542,15 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 'type': 'differentialdrive',
                 'dropDown': dropDownPorts
             };
-            this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
+
             hidePortIfOnlyInbuilt(this);
         } else {
             this.appendValueInput('POWER_LEFT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
         }
-         this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
+
          this.setPreviousStatement(true);
          this.setNextStatement(true);
          this.setTooltip(Blockly.Msg.MOTORDIFF_ON_TOOLTIP);
@@ -564,12 +567,13 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 'type': 'differentialdrive',
                 'dropDown': dropDownPorts
             };
-            this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_LEFT').appendField(dropDownPorts, 'ACTORPORT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.ROUNDS_PER_MINUTE_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
             hidePortIfOnlyInbuilt(this);
         } else {
             this.appendValueInput('POWER_LEFT').appendField(Blockly.Msg.MOTOR_STEER).appendField(dropdown, 'DIRECTION').appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_LEFT).setCheck('Number');
+            this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
         }
-         this.appendValueInput('POWER_RIGHT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOTOR_SPEED).appendField(Blockly.Msg.MOTOR_RIGHT).setCheck('Number');
          if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot') {
              this.appendValueInput('DISTANCE').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.SENSOR_TIME + ' ms').setCheck('Number');
          } else {
